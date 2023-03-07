@@ -4,7 +4,7 @@ export class Controller{
 
         this.checkZeroParameter(a);
 
-        this.checkIsOdddParameter(a);
+        this.checkIsEvenParameter(a);
 
         const result = a * b;
 
@@ -15,9 +15,7 @@ export class Controller{
 
         this.checkZeroParameter(a);
 
-        if (a % 2 === 0) {
-            throw new Error("The number must be odd");
-        }
+        this.checkIsOddParameter(a);
 
         const result = a * b;
 
@@ -55,9 +53,15 @@ export class Controller{
         return "Valid";
     }
 
-    private checkIsOdddParameter(a: number) {
+    private checkIsEvenParameter(a: number) {
         if (a % 2 != 0) {
             throw new Error("The number must be even");
+        }
+    }
+
+    private checkIsOddParameter(a: number) {
+        if (a % 2 === 0) {
+            throw new Error("The number must be odd");
         }
     }
 }
